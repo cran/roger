@@ -1,0 +1,42 @@
+### roger: Automated grading of R scripts
+###
+### Distributed under GPL 2 or later.
+
+## Imports
+import(utils)
+
+## Exports
+export(
+    ## Get information from source
+    "getSourceData",
+    ## Line length linter
+    "line_length_style",
+    ## Assignment linter
+    "assignment_style",
+    ## Commas linter
+    "commas_style",
+    ## Curly braces linters
+    "close_brace_style", "open_brace_style",
+    "open_brace_unique_style",
+    ## Infix operators linter
+    "ops_spaces_style",
+    ## Magic numbers linter
+    "nomagic_style",
+    ## Parentheses linters
+    "open_parenthesis_style", "close_parenthesis_style",
+    "left_parenthesis_style",
+    ## Square brackets linters
+    "open_bracket_style", "close_bracket_style",
+    ## Trailing blank lines linter
+    "trailing_blank_lines_style",
+    ## Trailing whitespaces linter
+    "trailing_whitespace_style",
+    ## Unneeded concatenation linter
+    "unneeded_concatenation_style",
+    ## Documentation linters
+    "any_doc", "signature_doc", "section_doc",
+    "description_section_doc", "arguments_section_doc",
+    "value_section_doc", "examples_section_doc",
+    "formals_doc",
+    ## Roger CLI R Interface
+    "checkreq", "clone", "grade", "push", "validate")

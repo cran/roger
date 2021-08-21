@@ -1,0 +1,125 @@
+# French translations for the roger package
+# Traductions françaises du paquetage roger
+# Copyright (C) 2021 Vincent Goulet
+# This file is distributed under the same license as the roger package.
+# Vincent Goulet <vincent.goulet@act.ulaval.ca>, 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: roger 0.9-0\n"
+"POT-Creation-Date: 2021-08-19 23:11\n"
+"PO-Revision-Date: 2021-08-19 23:12-0400\n"
+"Last-Translator: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
+"Language-Team: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Line"
+msgstr "Ligne"
+
+msgid "use '<-' instead of '=' for assignment"
+msgstr "utiliser '<-' plutôt que '=' pour l'affectation"
+
+msgid "never use a space before a comma, and always use one after"
+msgstr "ne jamais mettre une espace avant une virgule, et toujours une après"
+
+msgid "(unless the comma ends its line)"
+msgstr "(sauf si la virgule se trouve en fin de ligne)"
+
+msgid "put closing braces on their own line, aligned with their statement"
+msgstr ""
+"placer les accolades fermantes sur leur propre ligne, alignées avec leur "
+"instruction"
+
+msgid "put opening braces on their own line, aligned with their statement"
+msgstr ""
+"placer les accolades ouvrantes sur leur propre ligne, alignées avec leur "
+"instruction"
+
+msgid "put opening braces after their statement, separated by a space"
+msgstr ""
+"placer les accolades ouvrantes avec leur instruction, séparées par une espace"
+
+msgid "Different bracing styles used in the same file; pick one"
+msgstr "Différents styles d'accolades dans le même fichier; en choisir un seul"
+
+msgid "see lines"
+msgstr "voir lignes"
+
+msgid "No documentation found"
+msgstr "Documentation introuvable"
+
+msgid "No signature found for function"
+msgstr "Signature introuvable pour la fonction"
+
+msgid "No section matching"
+msgstr "Section correspondant à"
+
+msgid "found"
+msgstr "introuvable"
+
+msgid "Description of argument"
+msgstr "Description de l'argument"
+
+msgid "missing from the documentation"
+msgstr "manquante dans la documentation"
+
+msgid "limit line length to"
+msgstr "limiter la longueur des lignes à"
+
+msgid "characters."
+msgstr "caractères."
+
+msgid "potential magic number; assign to a variable"
+msgstr "nombre magique potentiel; affecter dans une variable"
+
+msgid "use spaces on both sides of infix operators"
+msgstr "utiliser des espaces autour des opérateurs infixés"
+
+msgid "do not use spaces after unary operators"
+msgstr "ne pas utiliser d'espace après les opérateurs unaires"
+
+msgid "do not use spaces before closing parentheses"
+msgstr "ne pas utiliser d'espace avant les parenthèses fermantes"
+
+msgid "do not use spaces after opening parentheses"
+msgstr "ne pas utiliser d'espaces après les parenthèses ouvrantes"
+
+msgid "do not use spaces before opening parentheses in function calls"
+msgstr ""
+"ne pas utiliser d'espaces avant les parenthèses dans les appels de fonctions"
+
+msgid "use spaces before opening parentheses (except in function calls)"
+msgstr ""
+"utiliser une espace avant les parenthèses (sauf dans les appels de fonctions)"
+
+msgid "unsupported API"
+msgstr "API non prise en charge"
+
+msgid "do not use spaces before closing brackets (except after a comma)"
+msgstr ""
+"ne pas mettre d'espaces avant un crochet fermant (sauf après une virgule)"
+
+msgid "do not use spaces after opening brackets"
+msgstr "ne pas mettre d'espaces après un crochet ouvrant"
+
+msgid "tidy up and delete this superfluous blank line"
+msgstr "nettoyer et supprimer cette ligne vide superflue"
+
+msgid "tidy up and delete unnecessary trailing whitespace"
+msgstr "nettoyer et supprimer les espaces inutiles en fin de ligne"
+
+msgid "do not use 'c()' with 0 or 1 argument"
+msgstr "ne pas utiliser 'c()' sans ou avec un seul argument"
+
+msgid "%d top-level function definition found, "
+msgid_plural "%d top-level function definitions found, "
+msgstr[0] "%d définition de fonction principale trouvée, "
+msgstr[1] "%d définitions de fonctions principales trouvées, "
+
+msgid "but %d section matching"
+msgid_plural "but %d sections matching"
+msgstr[0] "mais %d section correspondant à"
+msgstr[1] "mais %d sections correspondant à"
