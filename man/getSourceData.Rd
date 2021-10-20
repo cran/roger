@@ -20,7 +20,8 @@ getSourceData(file, encoding, keep.source = getOption("keep.source"))
   \code{keep.source} should be compatible with these functions.
 
   Linters using results of this function may not work properly if the
-  encoding used does not match the one of the script file.
+  \code{encoding} argument does not match the encoding of the script
+  file.
 }
 \value{
   A list of two elements:

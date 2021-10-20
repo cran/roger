@@ -10,6 +10,11 @@ assignment_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Check that the token "EQ_ASSIGN" (representing '=' for
     ## assignment in the parse tree) is not used in the code.
     valid <- parseData$token != "EQ_ASSIGN"

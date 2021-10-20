@@ -11,6 +11,11 @@ nomagic_style <- function(srcData, ignore = c(-1, 0, 1, 2, 100),
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a numeric constant.
     w <- which(parseData$token == "NUM_CONST")
 

@@ -11,6 +11,11 @@ commas_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a comma.
     w <- which(parseData$token == "','")
 

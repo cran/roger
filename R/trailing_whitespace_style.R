@@ -10,6 +10,11 @@ trailing_whitespace_style <- function(srcData)
     ## Get source code from argument.
     Lines <- srcData$Lines
 
+    ## Guard against null parse data.
+    if (is.null(Lines))
+        stop("no source code; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Check that lines do not contain trailing whitespace.
     valid <- !grepl(r"([[:blank:]]$)", Lines)
     res <- all(valid)

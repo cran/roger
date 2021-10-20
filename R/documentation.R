@@ -12,8 +12,13 @@ any_doc <- function(srcData, ...)
     ## Get source code from argument.
     Lines <- srcData$Lines
 
+    ## Guard against null source code.
+    if (is.null(Lines))
+        stop("no source code; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Check that some documentation is present in the source code.
-    res <- any(grepl(r"(^#+ +[[:alnum:]]+)", Lines, ...))
+    res <- any(grepl(r"(^#+ +[[:alnum:][:punct:]]+)", Lines, ...))
 
     if (!res)
     {
@@ -31,6 +36,11 @@ signature_doc <- function(srcData, ...)
     ## Get parse information and source code from argument.
     parseData <- srcData$parseData
     Lines <- srcData$Lines
+
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Get the names and formal arguments of the top-level functions
     ## defined in the data frame.
@@ -63,6 +73,11 @@ section_doc <- function(srcData, pattern, ...)
 {
     ## Get source code from argument.
     Lines <- srcData$Lines
+
+    ## Guard against null source code.
+    if (is.null(Lines))
+        stop("no source code; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Get the number of top-level functions defined in the data
     ## frame.
@@ -116,6 +131,11 @@ formals_doc <- function(srcData, ...)
     ## Get parse information and source code from argument.
     parseData <- srcData$parseData
     Lines <- srcData$Lines
+
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Get the formal arguments of the top-level functions defined in
     ## the data frame, losing to which function they belong. Keep one

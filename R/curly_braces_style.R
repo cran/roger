@@ -84,6 +84,11 @@ close_brace_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a closing brace.
     w <- which(parseData$token == "'}'")
 
@@ -144,6 +149,11 @@ open_brace_style <- function(srcData, style = c("R", "1TBS"))
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to an opening brace.
     w <- which(parseData$token == "'{'")
 
@@ -202,6 +212,11 @@ open_brace_style <- function(srcData, style = c("R", "1TBS"))
 ###
 open_brace_unique_style <- function(srcData)
 {
+    ## Guard against null parse data.
+    if (is.null(srcData$parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## First check whether there are opening braces in the code. If
     ## there are none, return TRUE; job done.
     w <- which(srcData$parseData$token == "'{'")

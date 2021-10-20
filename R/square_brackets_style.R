@@ -13,6 +13,11 @@ close_bracket_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a closing bracket.
     w <- which(parseData$token == "']'")
 
@@ -54,6 +59,11 @@ open_bracket_style <- function(srcData)
 {
     ## Get parse information from argument.
     parseData <- srcData$parseData
+
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Locate tokens corresponding to an opening bracket.
     w <- which(parseData$token == "'['")

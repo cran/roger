@@ -2,6 +2,27 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 0.99-1 (2021-10-19)}{
+  \subsection{New features}{
+    \itemize{
+      \item{The style and documentation linters now stop with an
+	informative error message when the parse data or source code in
+	argument is \code{NULL}.}
+      \item{The \code{any_doc} documentation linter now accepts 
+	punctuation characters after the comment character.}
+    }
+  }
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{The \code{left_parenthesis_style} linter no longer requires
+	a space before a left parenthesis after the division and
+	exponent operators, and after an optional opening parenthesis.}
+      \item{Script options in interface functions are now path expanded
+	on the R side.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 0.99-0 (2021-08-20)}{
   \itemize{
     \item{Initial public release.}

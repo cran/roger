@@ -13,6 +13,11 @@ close_parenthesis_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a closing parenthesis.
     w <- which(parseData$token == "')'")
 
@@ -46,6 +51,11 @@ open_parenthesis_style <- function(srcData)
 {
     ## Get parse information from argument.
     parseData <- srcData$parseData
+
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Locate tokens corresponding to an opening parenthesis.
     w <- which(parseData$token == "'('")
@@ -83,6 +93,11 @@ left_parenthesis_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to a closing parenthesis.
     w <- which(parseData$token == "'('")
 
@@ -113,12 +128,14 @@ left_parenthesis_style <- function(srcData)
     nrowup <-
         (parseData$token[wnfc - 1L] %in% c("expr", "forcond")) + 1L
 
-    ## Now check that there is a space before the parentheses in other
-    ## contexts, except at the start of sub-expressions.
+    ## Now check that there is a space before those parentheses.
+    ## Exceptions where no space is required: at the start of
+    ## sub-expressions; after operators '^' and '/'; after a (most
+    ## likely optional) left parenthesis '('.
     wup <- wnfc - nrowup
     valid[!funcall] <-
         (parseData$col1[wnfc] - parseData$col2[wup] > 1L) |
-        (parseData$token[wup] %in% "expr")
+        (parseData$token[wup] %in% c("expr", "'^'", "'/'", "'('"))
 
     ## Wrap up.
     res <- all(valid)

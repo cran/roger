@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: roger 0.9-0\n"
-"POT-Creation-Date: 2021-08-19 23:11\n"
-"PO-Revision-Date: 2021-08-19 23:12-0400\n"
+"POT-Creation-Date: 2021-09-14 00:52\n"
+"PO-Revision-Date: 2021-09-14 00:54-0400\n"
 "Last-Translator: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language-Team: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language: fr\n"
@@ -15,6 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "no parse data;"
+msgstr "aucune donnée syntaxique"
+
+msgid "use 'getSourceData' with 'keep.source = TRUE'"
+msgstr "utiliser 'getSourceData' avec 'keep.source = TRUE'"
 
 msgid "Line"
 msgstr "Ligne"
@@ -47,6 +53,9 @@ msgstr "Différents styles d'accolades dans le même fichier; en choisir un seul
 
 msgid "see lines"
 msgstr "voir lignes"
+
+msgid "no source code;"
+msgstr "aucun code source"
 
 msgid "No documentation found"
 msgstr "Documentation introuvable"

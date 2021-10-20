@@ -10,6 +10,11 @@ unneeded_concatenation_style <- function(srcData)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate calls to c().
     w <- which(parseData$token == "SYMBOL_FUNCTION_CALL" & parseData$text == "c")
 

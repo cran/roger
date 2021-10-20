@@ -10,6 +10,11 @@ trailing_blank_lines_style <- function(srcData)
     ## Get source code from argument.
     Lines <- srcData$Lines
 
+    ## Guard against null parse data.
+    if (is.null(Lines))
+        stop("no source code; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Get the last non-blank line number
     last_non_blank_line <- tail(which(nzchar(Lines)), 1)
 

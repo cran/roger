@@ -16,6 +16,11 @@ ops_spaces_style <- function(srcData, ops = ops_list)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Locate tokens corresponding to operators in the list.
     w <- which(parseData$token %in% ops)
 

@@ -20,13 +20,18 @@ get_cli_opts <- function(call)
          "opts" = lapply(call[-1L], eval))
 }
 
-## Format command line options: quote and prepend with flag.
+## Format command line options: path expand, quote and prepend with
+## flag.
 format_opts <- function(option, flag)
 {
+    ## If string 'y' is not NULL, path expand and shell quote string
+    ## 'y', then prepend string 'x' to it.
+    f <- function(x, y)
+        if (is.null(y)) y else paste0(x, shQuote(path.expand(y)))
+
     ## flag[i] is inserted in front of option[i] if, and only if,
     ## option[i] is not NULL.
-    mapply(function(x, y) if (is.null(y)) y else paste0(x, shQuote(y)),
-           flag, option, SIMPLIFY = FALSE, USE.NAMES = FALSE)
+    mapply(f, flag, option, SIMPLIFY = FALSE, USE.NAMES = FALSE)
 }
 
 ###

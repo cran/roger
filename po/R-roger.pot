@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: roger 0.10-0\n"
-"POT-Creation-Date: 2021-08-19 23:11\n"
+"Project-Id-Version: roger 0.99-1\n"
+"POT-Creation-Date: 2021-09-14 00:52\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,6 +9,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+
+msgid "no parse data;"
+msgstr ""
+
+msgid "use 'getSourceData' with 'keep.source = TRUE'"
+msgstr ""
 
 msgid "Line"
 msgstr ""
@@ -35,6 +41,9 @@ msgid "Different bracing styles used in the same file; pick one"
 msgstr ""
 
 msgid "see lines"
+msgstr ""
+
+msgid "no source code;"
 msgstr ""
 
 msgid "No documentation found"

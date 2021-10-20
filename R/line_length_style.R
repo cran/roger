@@ -10,6 +10,11 @@ line_length_style <- function(srcData, nchar_max = 80L)
     ## Get parse information from argument.
     parseData <- srcData$parseData
 
+    ## Guard against null parse data.
+    if (is.null(parseData))
+        stop("no parse data; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
     ## Check line length in number of characters (or width).
     valid <- parseData$col2 <= nchar_max
     res <- all(valid)

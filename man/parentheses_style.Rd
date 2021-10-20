@@ -20,8 +20,9 @@ left_parenthesis_style(srcData)
   First, opening parentheses should not be immediately followed by a
   space. Second, closing parentheses should not be immediately preceded by a
   space. Third, left (or opening) parentheses should always be preceded
-  by a space, except in function calls or at the start of
-  sub-expressions.
+  by a space, except in function calls, at the start of
+  sub-expressions, after operators \code{/} and \code{^}, or after an
+  optional left parenthesis.
 }
 \value{
   Boolean. When \code{FALSE}, a \link{message} indicates the nature of
@@ -38,8 +39,11 @@ if (!interactive())
 ## Correct use of spacing around parentheses
 fil <- tempfile(fileext = ".R")
 cat("x <- c(2, 3, 5)",
-    "if (any((2 * x)  > 4))",
+    "if (any((2 * x) > 4))",
     "    sum(x)",
+    "1/(x + 1)",
+    "2^(x - 1)",
+    "2^((x - 1))",
     file = fil, sep = "\n")
 srcData <- getSourceData(fil)
 open_parenthesis_style(srcData)
