@@ -39,4 +39,6 @@ export(
     "value_section_doc", "examples_section_doc",
     "formals_doc",
     ## Roger CLI R Interface
-    "checkreq", "clone", "grade", "push", "validate")
+    "roger_checkreq", "roger_clone", "roger_grade",
+    "roger_push", "roger_switch", "roger_validate"
+)

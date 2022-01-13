@@ -2,6 +2,41 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 0.99-2 (2022-01-12)}{
+  \subsection{User visible changes}{
+    \itemize{
+      \item{The nomenclature of the interface functions changes from
+	\code{foo} to \code{roger_foo}.}
+    }
+  }
+  \subsection{New features}{
+    \itemize{
+      \item{The set of interface functions matches the new features
+	introduced in version 0.99-8 of the Roger base system:
+	\code{roger_grade} gains a \code{detached_head} argument;
+	\code{roger_push} gains a \code{quiet} argument; new interface
+	function \code{roger_switch}.}
+      \item{Interface functions gain a \code{.debugOnly} argument to
+	print the command that would be sent to roger-base without
+	actually executing it.}
+    }
+  }
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{nomagic_style} now allows the digit \code{0} in
+	variable names.}
+      \item{\code{nomagic_style} now omits the special numerical
+	constants \code{Inf}, \code{NaN} and \code{NA}.}
+      \item{The \code{clone} interface now works correctly with multiple
+	additional curl arguments.}
+      \item{The \code{clone} interface now correctly passes the
+	\code{--machine} argument.}
+      \item{Required arguments are now shell quoted in interface
+	functions.}	
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 0.99-1 (2021-10-19)}{
   \subsection{New features}{
     \itemize{

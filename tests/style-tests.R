@@ -1,6 +1,6 @@
 ### roger: Automated grading of R scripts
 ###
-### Tests for the the validity of the style linters.
+### Tests for the validity of the style linters.
 ###
 ### AUTHORS: Jean-Christophe Langlois, Vincent Goulet <vincent.goulet@act.ulaval.ca>
 ### LICENSE: GPL 2 or later.
@@ -86,6 +86,9 @@ cat(
 "SIZE <- 42",
 "BAR <- 2^32",
 "BAZ <- 2^32 - 1",
+"FOOBAR0 <- 1234",
+"FOO_BAR42 <- 32 - 1",
+"FOO.BAR.1 <- 32 - 1",
 "",
 "## Allowed use of some numbers",
 "x <- rnorm(SIZE)",
@@ -96,6 +99,11 @@ cat(
 "x * 100",
 "for (i in 1:SIZE) x[1]",
 "x <- numeric(0)",
+"",
+"## Special numeric constants are also omitted",
+"x <- Inf",
+"x <- NA",
+"x <- NaN",
 file = VALID_MAGIC_FILE, sep = "\n")
 VALID_MAGIC <- getSourceData(VALID_MAGIC_FILE)
 

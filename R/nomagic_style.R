@@ -16,8 +16,10 @@ nomagic_style <- function(srcData, ignore = c(-1, 0, 1, 2, 100),
         stop("no parse data; ",
              "use 'getSourceData' with 'keep.source = TRUE'")
 
-    ## Locate tokens corresponding to a numeric constant.
-    w <- which(parseData$token == "NUM_CONST")
+    ## Locate tokens corresponding to a numeric constant (other than
+    ## the special values 'Inf', 'NaN' and 'NA').
+    w <- which(parseData$token == "NUM_CONST"
+               & !parseData$text %in% c("Inf", "NaN", "NA"))
 
     ## If there are no numeric constants, return TRUE; job done.
     if (!length(w))
@@ -71,7 +73,7 @@ nomagic_style <- function(srcData, ignore = c(-1, 0, 1, 2, 100),
     ## Determine a regex pattern to identify valid assignment
     ## expressions with '<-', '=' or '->' to names in uppercase
     ## letters only (and the other symbols accepted in names).
-    name <- "[A-Z.][A-Z1-9_.]*"
+    name <- "[A-Z.][A-Z0-9_.]*"
     pat <- paste0("(^", name, " *(<-|=))", "|", "(-> *", name, "$)")
 
     ## Starting from NUM_CONST, move up MAXLEVELS in the call stack to

@@ -15,7 +15,6 @@ nomagic_style(srcData, ignore = c(-1, 0, 1, 2, 100),
     addition to those in \code{ignore}.}
 }
 \details{
-
   Good coding practices dictate to avoid using \dQuote{magic numbers}
   (unnamed or insufficiently documented numerical constants) in code.
   For example, in the expression \code{y <- x + 42}, \code{42} is a
