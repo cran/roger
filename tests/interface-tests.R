@@ -30,15 +30,16 @@ stopifnot(
 ###
 stopifnot(
     identical(roger_clone("project", "[0-9]{9}_[Ll]ab", .debugOnly = TRUE),
-              paste0("roger clone --bitbucket-api ",
+              paste0("roger clone ",
                      shQuote("[0-9]{9}_[Ll]ab"), " ",
                      shQuote("project")))
 )
 stopifnot(
     identical(roger_clone("project", pattern = "[0-9]{9} [Ll]ab",
-                          page_limit = 500, .debugOnly = TRUE),
+                          page_limit = 500, api = "bitbucket", .debugOnly = TRUE),
               paste0("roger clone --page-limit=",
-                     shQuote("500"), " --bitbucket-api ",
+                     shQuote("500"), " --api=",
+                     shQuote("bitbucket"), " ",
                      shQuote("[0-9]{9} [Ll]ab"), " ",
                      shQuote("project")))
 )
@@ -46,14 +47,14 @@ stopifnot(
     identical(roger_clone(pattern = ".*", machine = "x.y.z", pro = "project",
                           .debugOnly = TRUE),
               paste0("roger clone --machine=",
-                     shQuote("x.y.z"), " --bitbucket-api ",
+                     shQuote("x.y.z"), " ",
                      shQuote(".*"), " ",
                      shQuote("project")))
 )
 stopifnot(
     identical(roger_clone("project", "[0-9]{9}_[Ll]ab",
                           curl_options = c("-a", "-b"), .debugOnly = TRUE),
-              paste0("roger clone -a -b --bitbucket-api ",
+              paste0("roger clone -a -b ",
                      shQuote("[0-9]{9}_[Ll]ab"), " ",
                      shQuote("project")))
 )

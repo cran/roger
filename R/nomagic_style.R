@@ -17,9 +17,10 @@ nomagic_style <- function(srcData, ignore = c(-1, 0, 1, 2, 100),
              "use 'getSourceData' with 'keep.source = TRUE'")
 
     ## Locate tokens corresponding to a numeric constant (other than
-    ## the special values 'Inf', 'NaN' and 'NA').
+    ## logical values 'TRUE' and 'FALSE', and the special values
+    ## 'Inf', 'NaN' and 'NA').
     w <- which(parseData$token == "NUM_CONST"
-               & !parseData$text %in% c("Inf", "NaN", "NA"))
+               & !parseData$text %in% c("TRUE", "FALSE", "Inf", "NaN", "NA"))
 
     ## If there are no numeric constants, return TRUE; job done.
     if (!length(w))

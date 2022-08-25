@@ -17,7 +17,7 @@ roger_checkreq(file = "./requirements.txt", \dots,
                .debugOnly = FALSE)
 
 roger_clone(project, pattern, page_limit = NULL, machine = NULL,
-            curl_options = NULL, api = "bitbucket", \dots,
+            curl_options = NULL, api, \dots,
             .debugOnly = FALSE)
 
 roger_grade(dir, config_file = NULL, time_limit = NULL,
@@ -46,8 +46,7 @@ roger_validate(dir, config_file = NULL, check_local_repos = TRUE,
   \item{add_file}{character vector of file names to publish along with
     the grading results.}
   \item{api}{character string; name of the REST API used to retrieve
-    the urls of the repositories. Currently only the BitBucket API is
-    supported.}
+    the urls of the repositories.}
   \item{check_local_repos}{boolean; check the status of the local
     repository?}
   \item{config_file}{name of grading or validation configuration file;

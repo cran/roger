@@ -65,23 +65,16 @@ roger_checkreq <- function(file = "./requirements.txt", ...,
 }
 
 roger_clone <- function(project, pattern, page_limit = NULL, machine = NULL,
-                        curl_options = NULL, api = "bitbucket", ...,
-                        .debugOnly = FALSE)
+                        curl_options = NULL, api, ..., .debugOnly = FALSE)
 {
     ## Extract tool name and arguments; keep options.
     Call <- get_cli_opts(match.call())
     opts <- Call$opts[-c(1L, 2L)]
 
-    ## Match the API given in argument to the corresponding CLI
-    ## option.
-    api <- match.arg(api)
-    opts$api <- switch(api,
-                       "bitbucket" = "--bitbucket-api",
-                       stop("unsupported API"))
-
     ## Quote 'page_limit' and 'machine' CLI options and prepend with
     ## corresponding flag.
-    flags <- c(page_limit = "--page-limit=",
+    flags <- c(api = "--api=",
+               page_limit = "--page-limit=",
                machine = "--machine=")
     opts[names(flags)] <- format_opts(opts[names(flags)], flags)
 

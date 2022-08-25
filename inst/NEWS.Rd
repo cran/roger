@@ -2,6 +2,29 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.0-0}{
+  \subsection{Changes}{
+    \itemize{
+      \item{To reflect an interface change in \code{roger clone} of the
+	base system, argument \code{api} of \code{roger_clone} no longer
+	has a default value.}
+    }
+  }
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{nomagic_style} now omits the logical values
+        \code{TRUE} and \code{FALSE}.} 
+      \item{\code{section_doc} now works correctly with user
+	submitted regex patterns that include alternation operators.}
+      \item{\code{section_doc} now requires that only spaces can
+	possibly follow the section title on its line. This is to avoid
+	false positives caused by a description that starts with the
+	same expression as the section title. For example, a section
+	"Value" that starts with "Value of\dots".}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 0.99-2 (2022-01-12)}{
   \subsection{User visible changes}{
     \itemize{

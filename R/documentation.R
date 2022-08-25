@@ -84,8 +84,9 @@ section_doc <- function(srcData, pattern, ...)
     nfun <- length(getParseFun(srcData$parseData))
 
     ## Complete pattern to match: comment symbol followed by one or
-    ## many spaces, and then the pattern provided in argument.
-    pat <- paste0(r"(^#+ *)", pattern)
+    ## many spaces; the pattern provided in argument; nothing else
+    ## than spaces until line end.
+    pat <- paste0(r"(^#+ *()", pattern, r"() *$)")
 
     ## Check if the pattern appears in the documentation as many times
     ## as there are top-level function definitions.
