@@ -7,6 +7,32 @@
 ### AUTHORS: Jean-Christophe Langlois, Vincent Goulet <vincent.goulet@act.ulaval.ca>
 ### LICENSE: GPL 2 or later
 
+any_comments <- function(srcData, ...)
+{
+    ## Get parse information from argument.
+    parseData <- srcData$parseData
+
+    ## Guard against null source code.
+    if (is.null(parseData))
+        stop("no source code; ",
+             "use 'getSourceData' with 'keep.source = TRUE'")
+
+    ## Check that at least one non empty comment is present in the
+    ## source code.
+    res <- any(grepl("#+ +[^[:space:]]",
+                     parseData$text[parseData$token == "COMMENT"]))
+
+    if (!res)
+    {
+        msg <- .makeMessage(gettext("No comment found"),
+                            appendLF = TRUE)
+        attributes(res) <- list(nlines = length(srcData$Lines), message = msg)
+        message(msg, appendLF = FALSE)
+    }
+
+    res
+}
+
 any_doc <- function(srcData, ...)
 {
     ## Get source code from argument.

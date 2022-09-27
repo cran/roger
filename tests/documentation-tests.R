@@ -64,6 +64,7 @@ VALID_DOC_EN <- getSourceData(VALID_DOC_EN_FILE)
 
 ## Tests for valid English documentation
 stopifnot(exprs = {
+    any_comments(VALID_DOC_EN)
     any_doc(VALID_DOC_EN)
     signature_doc(VALID_DOC_EN)
     arguments_section_doc(VALID_DOC_EN)
@@ -104,6 +105,7 @@ VALID_DOC_FR <- getSourceData(VALID_DOC_FR_FILE)
 
 ## Tests for valid French documentation
 stopifnot(exprs = {
+    any_comments(VALID_DOC_FR)
     any_doc(VALID_DOC_FR)
     signature_doc(VALID_DOC_FR)
     section_doc(VALID_DOC_FR, "Arguments")
@@ -113,6 +115,21 @@ stopifnot(exprs = {
     section_doc(VALID_DOC_FR, "Exemples")
     section_doc(VALID_DOC_FR, "exemples", ignore.case = TRUE)
     formals_doc(VALID_DOC_FR)
+})
+
+###
+### Specific test for valid comments
+###
+VALID_COMMENTS_FILE <- tempfile(fileext = ".R")
+cat(file = VALID_COMMENTS_FILE, "
+2 + 3 # comment
+42    ## 42
+a     ###            a
+")
+VALID_COMMENTS <- getSourceData(VALID_COMMENTS_FILE)
+
+stopifnot(exprs = {
+    any_comments(VALID_COMMENTS)
 })
 
 ###
@@ -273,29 +290,49 @@ stopifnot(exprs = {
 })
 
 ###
-### Test for no proper documentation at all
+### Test for no proper comments or documentation
 ###
-NO_DOC_FILE <- tempfile(fileext = ".R")
-cat(file = NO_DOC_FILE, "
+NO_CODOC_FILE <- tempfile(fileext = ".R")
+cat(file = NO_CODOC_FILE, "
 ##missing space
+foo <- function(x, y = 2) ##
+    x + y #   
+")
+NO_CODOC <- getSourceData(NO_CODOC_FILE)
+
+NO_COMMENTS_FILE <- tempfile(fileext = ".R")
+cat(file = NO_COMMENTS_FILE, "
 foo <- function(x, y = 2)
     x + y
 ")
-NO_DOC <- getSourceData(NO_DOC_FILE)
+NO_COMMENTS <- getSourceData(NO_COMMENTS_FILE)
 
 ## Target attribute of error
-INVALID_ANY <- 4L
+INVALID_ANY_COMMENTS_1 <- INVALID_ANY_DOC <- 4L
+INVALID_ANY_COMMENTS_2 <- 3L
 
-## Results for invalid documentation
-res.any_doc <- suppressMessages(any_doc(NO_DOC))
+## Results for invalid comments and documentation
+res.any_comments.1 <- suppressMessages(any_comments(NO_CODOC))
+res.any_comments.2 <- suppressMessages(any_comments(NO_COMMENTS))
+res.any_doc <- suppressMessages(any_doc(NO_CODOC))
 
 ## Tests for the invalid documentation
 stopifnot(exprs = {
+    isFALSE(res.any_comments.1)
+    isFALSE(res.any_comments.2)
     isFALSE(res.any_doc)
 })
 
 ## Tests for the attribute of errors
 stopifnot(exprs = {
-    identical(INVALID_ANY,
+    identical(INVALID_ANY_COMMENTS_1,
+              attr(res.any_comments.1, "nlines"))
+    identical(INVALID_ANY_COMMENTS_2,
+              attr(res.any_comments.2, "nlines"))
+    identical(INVALID_ANY_DOC,
               attr(res.any_doc, "nlines"))
 })
+
+## Local Variables:
+## ess-nuke-trailing-whitespace-p: nil
+## End:

@@ -34,7 +34,7 @@ export(
     ## Unneeded concatenation linter
     "unneeded_concatenation_style",
     ## Documentation linters
-    "any_doc", "signature_doc", "section_doc",
+    "any_comments", "any_doc", "signature_doc", "section_doc",
     "description_section_doc", "arguments_section_doc",
     "value_section_doc", "examples_section_doc",
     "formals_doc",

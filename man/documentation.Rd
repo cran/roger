@@ -1,5 +1,6 @@
 \name{documentation_linters}
 \alias{documentation_linters}
+\alias{any_comments}
 \alias{any_doc}
 \alias{signature_doc}
 \alias{section_doc}
@@ -10,13 +11,15 @@
 \alias{formals_doc}
 \title{Validation of Documentation}
 \description{
-  Check for proper documentation of a function in the comments of a
-  script file, and if certain mandatory sections are present.
+  Check for comments and proper documentation of a function in a script
+  file.
 
   The expected documentation format is not unlike R help pages; see
   details.
 }
 \usage{
+any_comments(srcData, ...)
+
 any_doc(srcData, ...)
 
 signature_doc(srcData, ...)
@@ -36,12 +39,16 @@ formals_doc(srcData, ...)
   \item{\dots}{further arguments passed to \code{\link[base]{grepl}}.}
 }
 \details{
-  These functions check the documentation provided with function
-  definitions in a script file. Lines starting with at least one comment
-  character \code{#} (in column 1) are considered documentation.
+  \code{any_comments} checks that a script file contains at least one
+  valid comment. A valid comment appears anywhere on a line, starts
+  with at least one comment character \code{#} followed by at least one
+  space, and contains some text.
 
-  \code{any_doc} checks that the file contains at least some
-  documentation.
+  The other functions check the documentation provided with function
+  definitions in a script file. Comments starting in column 1 are
+  considered documentation.
+
+  \code{any_doc} checks that the file contains some documentation.
 
   \code{signature_doc} checks that the signature (or usage information)
   of every function is present in the documentation.
@@ -60,16 +67,15 @@ formals_doc(srcData, ...)
 \value{
   Boolean. When \code{FALSE}, a \link{message} indicates the nature of
   the error, and the returned value has the following \link{attributes}:
-  \item{nlines}{number of lines checked for documentation
-    (\code{any_doc} only);}
+  \item{nlines}{number of lines checked for comments or documentation
+    (\code{any_comments} and \code{any_doc} only);}
   \item{fun}{names of functions without a signature in the
     documentation (\code{signature_doc} only);}
-  \item{sections}{number of sections missing from in the documentation
+  \item{sections}{number of sections missing from documentation
     (\code{section_doc} and wrapper functions only);}
-  \item{formals}{formal arguments missing from the documentation
+  \item{formals}{formal arguments missing from documentation
     (\code{formals_doc} only);}
   \item{message}{text of the error message.}
-
 }
 \references{
   Goulet, V.,
@@ -82,7 +88,15 @@ formals_doc(srcData, ...)
 if (!interactive())
     op <- options(keep.source = TRUE)
 
-## Define script file with embedded documentation.
+## Simple script with an inline comment.
+fil <- tempfile(fileext = ".R")
+cat(file = fil, "
+foo <- function(x, y = 2)
+    x + y  # addition
+")
+any_comments(getSourceData(fil))
+
+## Script with embedded documentation.
 fil <- tempfile(fileext = ".R")
 cat(file = fil, "
 ###

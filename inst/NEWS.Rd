@@ -2,6 +2,15 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.1-0}{
+  \subsection{New feature}{
+    \itemize{
+      \item{Function \code{any_comments} to check if a script file
+	contains at least one non empty comment.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.0-0}{
   \subsection{Changes}{
     \itemize{
