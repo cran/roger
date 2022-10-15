@@ -67,12 +67,12 @@ stopifnot(exprs = {
     any_comments(VALID_DOC_EN)
     any_doc(VALID_DOC_EN)
     signature_doc(VALID_DOC_EN)
-    arguments_section_doc(VALID_DOC_EN)
     section_doc(VALID_DOC_EN, "ARGUMENTS", ignore.case = TRUE)
-    value_section_doc(VALID_DOC_EN)
+    arguments_section_doc(VALID_DOC_EN)
     section_doc(VALID_DOC_EN, "value", ignore.case = TRUE)
-    examples_section_doc(VALID_DOC_EN)
+    value_section_doc(VALID_DOC_EN)
     section_doc(VALID_DOC_EN, "examples", ignore.case = TRUE)
+    examples_section_doc(VALID_DOC_EN)
     formals_doc(VALID_DOC_EN)
 })
 
@@ -118,12 +118,14 @@ stopifnot(exprs = {
 })
 
 ###
-### Specific test for valid comments
+### Specific test for the presence of valid comments
 ###
 VALID_COMMENTS_FILE <- tempfile(fileext = ".R")
 cat(file = VALID_COMMENTS_FILE, "
+# comment
+#comment
 2 + 3 # comment
-42    ## 42
+42    #*42
 a     ###            a
 ")
 VALID_COMMENTS <- getSourceData(VALID_COMMENTS_FILE)
@@ -290,37 +292,38 @@ stopifnot(exprs = {
 })
 
 ###
-### Test for no proper comments or documentation
+### Test for no proper comments
+### (there are spaces at the end of lines 2 and 3)
 ###
-NO_CODOC_FILE <- tempfile(fileext = ".R")
-cat(file = NO_CODOC_FILE, "
-##missing space
-foo <- function(x, y = 2) ##
+NO_COMMENTS_FILE_1 <- tempfile(fileext = ".R")
+cat(file = NO_COMMENTS_FILE_1, "
+##
+foo <- function(x, y = 2) ##  
     x + y #   
 ")
-NO_CODOC <- getSourceData(NO_CODOC_FILE)
+NO_COMMENTS_1 <- getSourceData(NO_COMMENTS_FILE_1)
 
-NO_COMMENTS_FILE <- tempfile(fileext = ".R")
-cat(file = NO_COMMENTS_FILE, "
+NO_COMMENTS_FILE_2 <- tempfile(fileext = ".R")
+cat(file = NO_COMMENTS_FILE_2, "
 foo <- function(x, y = 2)
     x + y
 ")
-NO_COMMENTS <- getSourceData(NO_COMMENTS_FILE)
+NO_COMMENTS_2 <- getSourceData(NO_COMMENTS_FILE_2)
 
 ## Target attribute of error
-INVALID_ANY_COMMENTS_1 <- INVALID_ANY_DOC <- 4L
+INVALID_ANY_COMMENTS_1 <- 4L
 INVALID_ANY_COMMENTS_2 <- 3L
 
-## Results for invalid comments and documentation
-res.any_comments.1 <- suppressMessages(any_comments(NO_CODOC))
-res.any_comments.2 <- suppressMessages(any_comments(NO_COMMENTS))
-res.any_doc <- suppressMessages(any_doc(NO_CODOC))
+## Results for invalid comments
+res.any_comments.1 <- suppressMessages(
+    any_comments(NO_COMMENTS_1)
+                                       )
+res.any_comments.2 <- suppressMessages(any_comments(NO_COMMENTS_2))
 
-## Tests for the invalid documentation
+## Tests for the invalid comments
 stopifnot(exprs = {
     isFALSE(res.any_comments.1)
     isFALSE(res.any_comments.2)
-    isFALSE(res.any_doc)
 })
 
 ## Tests for the attribute of errors
@@ -329,8 +332,6 @@ stopifnot(exprs = {
               attr(res.any_comments.1, "nlines"))
     identical(INVALID_ANY_COMMENTS_2,
               attr(res.any_comments.2, "nlines"))
-    identical(INVALID_ANY_DOC,
-              attr(res.any_doc, "nlines"))
 })
 
 ## Local Variables:

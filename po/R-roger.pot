@@ -1,14 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: roger 0.99-1\n"
-"POT-Creation-Date: 2021-09-14 00:52\n"
+"Project-Id-Version: roger 1.1-1\n"
+"POT-Creation-Date: 2022-10-14 17:53\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "no parse data;"
 msgstr ""
@@ -28,6 +29,9 @@ msgstr ""
 msgid "(unless the comma ends its line)"
 msgstr ""
 
+msgid "put a space after the comment delimiters"
+msgstr ""
+
 msgid "put closing braces on their own line, aligned with their statement"
 msgstr ""
 
@@ -44,6 +48,9 @@ msgid "see lines"
 msgstr ""
 
 msgid "no source code;"
+msgstr ""
+
+msgid "No comment found"
 msgstr ""
 
 msgid "No documentation found"
@@ -89,9 +96,6 @@ msgid "do not use spaces before opening parentheses in function calls"
 msgstr ""
 
 msgid "use spaces before opening parentheses (except in function calls)"
-msgstr ""
-
-msgid "unsupported API"
 msgstr ""
 
 msgid "do not use spaces before closing brackets (except after a comma)"

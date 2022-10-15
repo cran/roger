@@ -40,9 +40,8 @@ formals_doc(srcData, ...)
 }
 \details{
   \code{any_comments} checks that a script file contains at least one
-  valid comment. A valid comment appears anywhere on a line, starts
-  with at least one comment character \code{#} followed by at least one
-  space, and contains some text.
+  non empty comment, that is, a string with at least one character other
+  than whitespace after the comment delimiters.
 
   The other functions check the documentation provided with function
   definitions in a script file. Comments starting in column 1 are
@@ -88,11 +87,14 @@ formals_doc(srcData, ...)
 if (!interactive())
     op <- options(keep.source = TRUE)
 
-## Simple script with an inline comment.
+## Script with non empty comments.
 fil <- tempfile(fileext = ".R")
 cat(file = fil, "
+#-
+## here is foo
+#-
 foo <- function(x, y = 2)
-    x + y  # addition
+    x + y  #addition
 ")
 any_comments(getSourceData(fil))
 
@@ -123,6 +125,7 @@ foo <- function(x, y = 2)
 fooData <- getSourceData(fil)
 
 ## Elements present in the documentation
+any_comments(fooData)
 any_doc(fooData)
 arguments_section_doc(fooData)
 value_section_doc(fooData)

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: roger 0.9-0\n"
-"POT-Creation-Date: 2021-09-14 00:52\n"
-"PO-Revision-Date: 2021-09-14 00:54-0400\n"
+"POT-Creation-Date: 2022-10-14 17:53\n"
+"PO-Revision-Date: 2022-10-14 17:55-0400\n"
 "Last-Translator: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language-Team: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language: fr\n"
@@ -34,6 +34,9 @@ msgstr "ne jamais mettre une espace avant une virgule, et toujours une après"
 msgid "(unless the comma ends its line)"
 msgstr "(sauf si la virgule se trouve en fin de ligne)"
 
+msgid "put a space after the comment delimiters"
+msgstr "insérer une espace après les marqueurs de commentaires"
+
 msgid "put closing braces on their own line, aligned with their statement"
 msgstr ""
 "placer les accolades fermantes sur leur propre ligne, alignées avec leur "
@@ -56,6 +59,9 @@ msgstr "voir lignes"
 
 msgid "no source code;"
 msgstr "aucun code source"
+
+msgid "No comment found"
+msgstr "Commentaires introuvables"
 
 msgid "No documentation found"
 msgstr "Documentation introuvable"
@@ -103,9 +109,6 @@ msgstr ""
 msgid "use spaces before opening parentheses (except in function calls)"
 msgstr ""
 "utiliser une espace avant les parenthèses (sauf dans les appels de fonctions)"
-
-msgid "unsupported API"
-msgstr "API non prise en charge"
 
 msgid "do not use spaces before closing brackets (except after a comma)"
 msgstr ""

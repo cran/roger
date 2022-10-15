@@ -17,10 +17,12 @@ any_comments <- function(srcData, ...)
         stop("no source code; ",
              "use 'getSourceData' with 'keep.source = TRUE'")
 
-    ## Check that at least one non empty comment is present in the
-    ## source code.
-    res <- any(grepl("#+ +[^[:space:]]",
-                     parseData$text[parseData$token == "COMMENT"]))
+    ## Check that at least one non empty comment (that is, containing
+    ## something else than whitespace after the comment delimiters) is
+    ## present in the source code.
+    res <- any(grepl(r"([^[:space:]])",
+                     sub(r"(^#+)", "",
+                         parseData$text[parseData$token == "COMMENT"])))
 
     if (!res)
     {

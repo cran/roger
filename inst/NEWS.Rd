@@ -2,6 +2,29 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.2-0}{
+  \subsection{New feature}{
+    \itemize{
+      \item{\code{comments_style} linter to check that comment
+	delimiters and the text of comments, when there is 
+	any, are separated by at least one space.}
+    }
+  }
+  \subsection{Changes}{
+    \itemize{
+      \item{\code{any_comments} now accepts comments without spaces
+	between the comment delimiters and the text. Use
+	\code{comments_style} to test the actual styling of comments.}
+    }
+  }
+  \subsection{Bug fix}{
+    \itemize{
+      \item{Add missing French translation for a message from
+	\code{any_comments}.} 
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.1-0}{
   \subsection{New feature}{
     \itemize{
