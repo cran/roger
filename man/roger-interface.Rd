@@ -16,27 +16,30 @@
 roger_checkreq(file = "./requirements.txt", \dots,
                .debugOnly = FALSE)
 
-roger_clone(project, pattern, page_limit = NULL, machine = NULL,
-            curl_options = NULL, api, \dots,
+roger_clone(pattern, project, rogerrc_file = NULL, machine = NULL,
+            curl_options = NULL, api = NULL, quiet = FALSE, \dots,
             .debugOnly = FALSE)
 
-roger_grade(dir, config_file = NULL, time_limit = NULL,
-            detached_head = FALSE, output_file = NULL, \dots,
-            .debugOnly = FALSE)
+roger_grade(dir = getwd(), config_file = NULL, time_limit = NULL,
+            detached_head = FALSE, output_file = NULL,
+            quiet = FALSE, \dots, .debugOnly = FALSE)
 
-roger_push(repos, branch, create = FALSE, file = NULL,
+roger_push(branch, repos = getwd(), create = FALSE, file = NULL,
            add_file = NULL, message = NULL, quiet = FALSE, \dots,
            .debugOnly = FALSE)
 
-roger_switch(repos, branch, quiet = FALSE, \dots,
+roger_switch(branch, repos = getwd(), quiet = FALSE, \dots,
              .debugOnly = FALSE)
 
-roger_validate(dir, config_file = NULL, check_local_repos = TRUE,
-               \dots, .debugOnly = FALSE)
+roger_validate(dir = getwd(), config_file = NULL,
+               check_local_repos = TRUE, \dots, .debugOnly = FALSE)
 }
 \arguments{
-  \item{project}{name of a Git project containing repositories.}
+  \item{file}{requirements file name for \code{checkreq}; name of the
+    grading results file for \code{push} (overriding the default, locale
+    dependent, value).}
   \item{pattern}{regular expression pattern.}
+  \item{project}{name of a Git project containing repositories.}
   \item{dir}{character vector of directory names containing projects to
     grade or validate; only the first one is used by \code{validate}.}
   \item{repos}{character vector of Git repository names to publish
@@ -57,16 +60,12 @@ roger_validate(dir, config_file = NULL, check_local_repos = TRUE,
     to \code{curl}.}
   \item{detached_head}{boolean; leave the repositories in a detached
     head state for further manual grading?}
-  \item{file}{requirements file name for \code{checkreq}; name of the
-    grading results file for \code{push} (overriding the default, locale
-    dependent, value).}
   \item{machine}{URI and context of the Git server.}
   \item{message}{character vector of commit messages pasted together to
     form a single paragraph.}
   \item{output_file}{grading results file name; if \code{NULL} or
     \code{-}, results are written to standard output.}
-  \item{page_limit}{integer; value of the REST API parameter
-    \code{limit} indicating the number of results to return per page.}
+  \item{rogerrc_file}{path to the rogerrc file.}
   \item{quiet}{boolean; suppress output?}
   \item{time_limit}{date and time in ISO 8601 format (YYYY-MM-DD
     HH:MM:SS) by which to grade a project in a Git repository.}
@@ -96,15 +95,15 @@ roger_validate(dir, config_file = NULL, check_local_repos = TRUE,
 ## Sample usage for students
 \dontrun{## Validate the project in the current directory using the
 ## configuration file 'validateconf-prototype'.
-roger_validate(".", config_file = "validateconf-prototype")}
+roger_validate(config_file = "validateconf-prototype")}
 
 ## Sample usage for graders.
 \dontrun{## First check the availability of the grading tools.
 roger_checkreq()
 
-## Clone all repositories in the BitBucket project 'a2020-12345'
-## matching the pattern '[0-9]{9}_prototype'.
-roger_clone("a2042-12345", "[0-9]{9}_prototype")
+## Clone all repositories matching the pattern '[0-9]{9}_prototype'
+## in the BitBucket project 'a2042-12345'.
+roger_clone("[0-9]{9}_prototype", "a2042-12345")
 
 ## Grade all directories (repositories) starting with '[0-9]*'
 ## as of 2020-04-30 23:59:59 using the configuration in file
@@ -118,9 +117,9 @@ roger_grade("[0-9]*/", config_file = "gradeconf-prototype",
 ## Publish results in every repository in a new branch
 ## 'grading-results'. No need to specify the grading results file
 ## name since 'GRADING.txt' is the default in an English locale.
-roger_push("[0-9]*/", "grading-results", create = TRUE,
+roger_push("grading-results", "[0-9]*/", create = TRUE,
            message = c("Here are your grading results"))
 
 ## Return all repositories to main branch.
-roger_switch("[0-9]*/", "main")}
+roger_switch("main", "[0-9]*/")}
 }

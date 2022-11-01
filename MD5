@@ -1,4 +1,4 @@
-4866274582d28a6602b54d2031fcaeef *DESCRIPTION
+0347e8ded4c158e8aa06f40aad7e7b82 *DESCRIPTION
 a4f0025075fdbcd184f886eebfc1da71 *NAMESPACE
 642b3e4f9becc130b86fa61fe1f2dd8d *R/assignment_style.R
 660382037c6692b7370fce43c6630050 *R/commas_style.R
@@ -12,12 +12,12 @@ ebfff64952b846592395615948e0402e *R/line_length_style.R
 d900c687e76623390967f9a531b1319f *R/nomagic_style.R
 732d7b703e0f16fbf347ebd4de63aea5 *R/ops_spaces_style.R
 33ffb217bfe12fa96710f1632ae7e152 *R/parentheses_style.R
-eec36a0888992b2a46dd7d3edcbfdb8b *R/roger_interface.R
+c9d603fbaf3abde725ef172df46d9260 *R/roger_interface.R
 f504a1c3c9b39b7d474473302390bc5b *R/square_brackets_style.R
 a3cdf19aca0f91ed15b538aae1eb8472 *R/trailing_blank_lines_style.R
 920c0ca600a041352ee5fa8524b8a699 *R/trailing_whitespace_style.R
 25d012abdf778a3c073d39039b36dcce *R/unneeded_concatenation_style.R
-6ce4029cdda7bdf2a93b750cbed92df7 *inst/NEWS.Rd
+4187240b2eb9e4cbfc765fe0cb497f0a *inst/NEWS.Rd
 3fb811a3805d577143ba6ac2c44bf51a *inst/po/en@quot/LC_MESSAGES/R-roger.mo
 1d65d59abf446ad365e95da5910c4bd9 *inst/po/fr/LC_MESSAGES/R-roger.mo
 99842f5b245cd2d2eac841e6cbe84497 *man/assignment_style.Rd
@@ -30,7 +30,7 @@ ca800970dd11a4f5b6a394578f8ebd90 *man/getSourceData.Rd
 5fbf4dc17e1ee536b36c6e87aa82f3f7 *man/nomagic_style.Rd
 909530545cc4fe2e8ddd3731ae198190 *man/ops_spaces_style.Rd
 763901de3722895f944f4023afbafd4e *man/parentheses_style.Rd
-3cc839b265cb9d65dc98ea69ce835c0a *man/roger-interface.Rd
+9457a5361b01b8530a5d663c84b73f66 *man/roger-interface.Rd
 fe5268e48634c9d7b2aaa48a303f702e *man/square_brackets_style.Rd
 6778581051dc8744e9adf4187ae459f7 *man/trailing_blank_lines_style.Rd
 3de2a1ec820f84fff1e1d97822441ebd *man/trailing_whitespace_style.Rd
@@ -40,5 +40,5 @@ a778686c3486c28a48cd32a454bd96ca *man/unneeded_concatenation_style.Rd
 b5ea451a752a1b1f09c229e24e5f9904 *tests/documentation-tests.R
 2843511ce8d693a1bd2d2150c61aca74 *tests/getParseFun-tests.R
 5a8b407c242d7dafbf772921522561e5 *tests/getParseParent-tests.R
-ae652ca01beb8e421cda07114ee5120b *tests/interface-tests.R
+8936a9f8817879adbe002a5d4a490d48 *tests/interface-tests.R
 354b450cbf63498852cf2aaa2096b810 *tests/style-tests.R

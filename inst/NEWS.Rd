@@ -2,6 +2,35 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.3-0}{
+  \subsection{New features}{
+    \itemize{
+      \item{\code{roger_grade} gains a \code{quiet} argument that was
+	missing in earlier releases.}
+    }
+  }
+  \subsection{User visible changes}{
+    \itemize{
+      \item{Following changes in the base system, the interface
+	functions \code{roger_grade}, \code{roger_push},
+	\code{roger_switch} and \code{roger_validate} now use a default
+	value of \code{getwd()} for the \code{dir} or \code{repos}
+	argument.}
+      \item{\code{roger_push} and \code{roger_switch}: to put the
+	mandatory argument ahead of optional ones, \code{branch} is now
+	the first argument of these functions.}
+    }
+  }
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{roger_clone} now correctly matches the arguments of
+	the corresponding base system tool: argument \code{page_limit}
+	is removed; argument \code{rogerrc_file} is added; argument
+	\code{api} is now \code{NULL} by default.} 
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.2-0}{
   \subsection{New feature}{
     \itemize{
@@ -10,7 +39,7 @@
 	any, are separated by at least one space.}
     }
   }
-  \subsection{Changes}{
+  \subsection{User visible changes}{
     \itemize{
       \item{\code{any_comments} now accepts comments without spaces
 	between the comment delimiters and the text. Use
