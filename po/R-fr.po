@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: roger 0.9-0\n"
-"POT-Creation-Date: 2022-10-14 17:53\n"
-"PO-Revision-Date: 2022-10-14 17:55-0400\n"
+"POT-Creation-Date: 2022-11-18 00:21\n"
+"PO-Revision-Date: 2022-11-18 00:25-0500\n"
 "Last-Translator: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language-Team: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language: fr\n"
@@ -30,9 +30,6 @@ msgstr "utiliser '<-' plutôt que '=' pour l'affectation"
 
 msgid "never use a space before a comma, and always use one after"
 msgstr "ne jamais mettre une espace avant une virgule, et toujours une après"
-
-msgid "(unless the comma ends its line)"
-msgstr "(sauf si la virgule se trouve en fin de ligne)"
 
 msgid "put a space after the comment delimiters"
 msgstr "insérer une espace après les marqueurs de commentaires"

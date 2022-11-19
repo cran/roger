@@ -2,8 +2,9 @@
 \alias{commas_style}
 \title{Validation of Spacing Around Commas}
 \description{
-  Check that commas are never preceded by a space and always followed by
-  one, unless the comma ends the line.
+  Check that commas are never preceded by a space, unless the previous
+  symbol is also a comma, and always followed by one, unless the comma
+  ends the line.
 }
 \usage{
 commas_style(srcData)
@@ -13,7 +14,8 @@ commas_style(srcData)
 }
 \details{
   Good coding practices dictate to follow commas by a space, unless it
-  ends its line, and to never put a space before.
+  ends its line, and to never put a space before. An exception to the
+  latter rule is consecutive commas, as in indexing of arrays.
 }
 \value{
   Boolean. When \code{FALSE}, a \link{message} indicates the nature of
@@ -30,12 +32,14 @@ if (!interactive())
 ## Correct use of spacing around a comma
 fil <- tempfile(fileext = ".R")
 cat("x <- c(2, 3, 5)", "crossprod(2,", "x)",
+    "a <- array(1:24, 2:4)", "a[1, , ]",
     file = fil, sep = "\n")
 commas_style(getSourceData(fil))
 
 ## Incorrect use of spacing around a comma
 fil <- tempfile(fileext = ".R")
 cat("x <- c(2,3, 5)", "crossprod(2 ,", "x)",
+    "a <- array(1:24, 2:4)", "a[1,, ]",
     file = fil, sep = "\n")
 commas_style(getSourceData(fil))
 }

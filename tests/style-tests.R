@@ -73,8 +73,17 @@ cat(
 ## Commas
 "paste('Hello',",
 "    ' World')",
+"A <- array(24, 2:4)",
+"A[1, , ]",
+"A[, 1, ]",
+"A[, , 1]",
+"A[1, 1, ]",
+"A[1, , 1]",
+"A[, 1, 1]",
+## Trailing whitespace
 "## There should be no whitespaces at the end of a line",
 "",
+## Trailing blank lines
 "## There should be no trailing blank lines in a file",
 file = VALID_STYLE_FILE, sep = "\n")
 VALID_STYLE <- getSourceData(VALID_STYLE_FILE)
@@ -270,6 +279,7 @@ stopifnot(exprs = {
 
 ## General expressions
 INVALID_STYLE_FILE <- tempfile(fileext = ".R")
+INVALID_STYLE_FILE <- "test.R"
 cat(
 "## Invalid assignment",
 "x = 2",
@@ -311,9 +321,18 @@ cat(
 "z[1 ]",
 "U <- matrix(1:4, ncol = 2)",
 "U[2,]",
+"U[,2]",
 ## Commas
 "z <- c(42,43)",
 "z <- c(42 ,43)",
+"A <- array(24, 2:4)",
+"A[1,, ]",
+"A[1, ,]",
+"A[, 1,]",
+"A[,, 1]",
+"A[1, 1,]",
+"A[1,, 1]",
+"A[ , 1, 1]",
 "",
 ## Line length
 "## Lines should be less than 80 characters ########################################",
@@ -407,24 +426,24 @@ INVALID_NOMAGIC <- getSourceData(INVALID_NOMAGIC_FILE)
 INVALID_ASSIGNMENT_LINES <- c(2L, 3L, 4L)
 INVALID_CLOSE_BRACE_R_LINES <- c(8L, 9L, 17L, 21L)
 INVALID_CLOSE_BRACE_1TBS_LINES <- c(7L, 10L, 10L)
-INVALID_CLOSE_BRACKET_LINES <- c(35L, 37L)
+INVALID_CLOSE_BRACKET_LINES <- c(35L, 37L, 43L, 44L, 46L)
 INVALID_CLOSE_PARENTHESIS_LINES <- 26L
-INVALID_COMMAS_LINES <- c(37L, 38L, 39L)
+INVALID_COMMAS_LINES <- c(37L, 38L, 39L, 40L, 42L, 43L, 44L, 45L, 46L, 47L, 48L)
 INVALID_COMMENTS_LINES <- 2L
 INVALID_LEFT_PARENTHESIS_LINES <- 27:33
-INVALID_LINE_LENGTH_LINES <- 41L
+INVALID_LINE_LENGTH_LINES <- 50L
 INVALID_NOMAGIC_LINES <- c(2L, 3L, 4L, 7L, 9L, 10L, 10L, 11L)
 INVALID_NOMAGIC_IGNORE_LINES <- c(3L, 4L, 7L, 9L, 10L, 10L)
 INVALID_OPEN_BRACE_R_LINES <- c(2L, 6L, 12L, 16L)
 INVALID_OPEN_BRACE_1TBS_LINES <- c(2L, 5L)
 INVALID_OPEN_BRACE_UNIQUE_LINES <- list(R = c(2L, 6L, 12L, 16L, 19L),
                                         ONETBS = c(2L, 5L, 8L))
-INVALID_OPEN_BRACKET_LINES <- 34L
+INVALID_OPEN_BRACKET_LINES <- c(34L, 48L)
 INVALID_OPEN_PARENTHESIS_LINES <- 25L
 INVALID_OPS_SPACING_LINES <- c(7:24, 28L)
-INVALID_TRAILING_BLANK_LINES_LINES <- c(49L, 50L, 51L)
-INVALID_TRAILING_WHITESPACE_LINES <- c(43L, 44L)
-INVALID_UNNEEDED_CONCATENATION_LINES <- c(46L, 47L, 48L)
+INVALID_TRAILING_BLANK_LINES_LINES <- c(58L, 59L, 60L)
+INVALID_TRAILING_WHITESPACE_LINES <- c(52L, 53L)
+INVALID_UNNEEDED_CONCATENATION_LINES <- c(55L, 56L, 57L)
 
 ## Results for invalid style
 res.assignment_style <- suppressMessages(assignment_style(INVALID_STYLE))
@@ -443,7 +462,9 @@ res.open_brace_style_R <- suppressMessages(open_brace_style(INVALID_BRACE_R, "R"
 res.open_brace_style_1TBS <- suppressMessages(open_brace_style(INVALID_BRACE_1TBS, "1TBS"))
 res.open_brace_unique_style <- list(R = suppressMessages(open_brace_unique_style(INVALID_BRACE_R)),
                                     ONETBS = suppressMessages(open_brace_unique_style(INVALID_BRACE_1TBS)))
-res.open_bracket_style <- suppressMessages(open_bracket_style(INVALID_STYLE))
+res.open_bracket_style <- suppressMessages(
+    open_bracket_style(INVALID_STYLE)
+)
 res.open_parenthesis_style <- suppressMessages(open_parenthesis_style(INVALID_STYLE))
 res.trailing_blank_lines_style <- suppressMessages(trailing_blank_lines_style(INVALID_STYLE))
 res.trailing_whitespace_style <- suppressMessages(trailing_whitespace_style(INVALID_STYLE))

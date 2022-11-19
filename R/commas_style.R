@@ -1,7 +1,8 @@
 ### roger: Automated grading of R scripts
 ###
-### Validation of spaces around commas: never one before and always
-### one after, unless the comma ends the line.
+### Validation of spaces around commas: never one before, unless the
+### preceeding symbol is also a comma, and always one after, unless
+### the comma ends the line.
 ###
 ### AUTHORS: Jean-Christophe Langlois, Vincent Goulet <vincent.goulet@act.ulaval.ca>
 ### LICENSE: GPL 2 or later
@@ -27,8 +28,11 @@ commas_style <- function(srcData)
     lines <- parseData$line1[w]
     cols <- parseData$col1[w]
 
-    ## First, check that there is no space before the comma.
-    valid_before <- 1L == (cols - parseData$col2[w - 1L])
+    ## First, check that there is no space before the comma, unless
+    ## the character before the space is also a comma (to allow
+    ## consecutive commas in indexing of arrays).
+    valid_before <- (cols - parseData$col2[w - 1L]) == 1L |
+        parseData$token[w - 1L] == "','"
 
     ## Then, check that there is a space after the comma or that the
     ## comma ends the line.
@@ -45,8 +49,7 @@ commas_style <- function(srcData)
         lines <- lines[!valid]
         msg <- sapply(lines, function(l)
             .makeMessage(gettext("Line"), " ", l, ": ",
-                         gettext("never use a space before a comma, and always use one after\n"),
-                         gettext("  (unless the comma ends its line)"),
+                         gettext("never use a space before a comma, and always use one after"),
                          appendLF = TRUE))
         attributes(res) <- list(lines = lines, message = msg)
         message(msg, appendLF = FALSE)

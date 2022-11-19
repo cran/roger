@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: roger 1.1-1\n"
-"POT-Creation-Date: 2022-10-14 17:53\n"
+"Project-Id-Version: roger 1.3-1\n"
+"POT-Creation-Date: 2022-11-18 00:21\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,9 +24,6 @@ msgid "use '<-' instead of '=' for assignment"
 msgstr ""
 
 msgid "never use a space before a comma, and always use one after"
-msgstr ""
-
-msgid "(unless the comma ends its line)"
 msgstr ""
 
 msgid "put a space after the comment delimiters"

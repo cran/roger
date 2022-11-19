@@ -2,6 +2,17 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.3-1}{
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{commas_style} now allows spaces before a comma if the
+	preceeding symbol is also a comma. This exception to the general
+	rule is needed for consecutive commas commonly used in the
+	indexing of arrays.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.3-0}{
   \subsection{New features}{
     \itemize{
