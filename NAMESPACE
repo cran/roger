@@ -9,6 +9,8 @@ import(utils)
 export(
     ## Get information from source
     "getSourceData",
+    ## Utility function
+    "all_style",
     ## Assignment linter
     "assignment_style",
     ## Commas linter
@@ -19,7 +21,7 @@ export(
     "close_brace_style", "open_brace_style",
     "open_brace_unique_style",
     ## Square brackets linters
-    "open_bracket_style", "close_bracket_style",
+    "close_bracket_style", "open_bracket_style",
     ## Line length linter
     "line_length_style",
     ## Magic numbers linter
@@ -27,8 +29,8 @@ export(
     ## Infix operators linter
     "ops_spaces_style",
     ## Parentheses linters
-    "open_parenthesis_style", "close_parenthesis_style",
-    "left_parenthesis_style",
+    "close_parenthesis_style", "left_parenthesis_style",
+    "open_parenthesis_style",
     ## Trailing blank lines linter
     "trailing_blank_lines_style",
     ## Trailing whitespaces linter

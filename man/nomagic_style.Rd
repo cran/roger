@@ -51,6 +51,8 @@ if (!interactive())
 
 fil <- tempfile(fileext = ".R")
 cat("MAX <- 2^6 - 1",
+    "MIN.INT <- 42L",
+    "99 -> ERROR__",
     "size <- 42",
     "x <- rnorm(MAX)",
     "runif(123)",

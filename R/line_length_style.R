@@ -22,7 +22,7 @@ line_length_style <- function(srcData, nchar_max = 80L)
     ## Return an error message for lines that are not valid.
     if (!res)
     {
-        lines <- parseData$line1[!valid]
+        lines <- unique(parseData$line1[!valid])
         msg <- sapply(lines, function(l)
             .makeMessage(gettext("Line"), " ", l, ": ",
                          gettext("limit line length to"), " ", nchar_max, " ",

@@ -213,15 +213,19 @@ VALID_COMMENTS <- getSourceData(VALID_COMMENTS_FILE)
 ## Magic numbers
 VALID_NOMAGIC_FILE <- tempfile(fileext = ".R")
 cat(
-"## Correct assignment of magic numbers",
 "SIZE <- 42",
 "BAR <- 2^32",
 "BAZ <- 2^32 - 1",
 "FOOBAR0 <- 1234",
 "FOO_BAR42 <- 32 - 1",
 "FOO.BAR.1 <- 32 - 1",
+"BÉBÉ <- 42",
+"ÇA_1 <- 32 - 1",
+"ÌÀÙ.2 <- 2^32 - 1",
+"42 -> SIZE",
+"32 - 1 -> ÇA_1",
+"2^32 - 1 -> ÌÀÙ.2",
 "",
-"## Allowed use of some numbers",
 "x <- rnorm(SIZE)",
 "x[1]",
 "x[1] * 2",
@@ -231,7 +235,6 @@ cat(
 "for (i in 1:SIZE) x[1]",
 "x <- numeric(0)",
 "",
-"## Special numeric constants are also omitted",
 "x <- Inf",
 "x <- NA",
 "x <- NaN",
@@ -566,6 +569,51 @@ stopifnot(exprs = {
     trailing_blank_lines_style(EMPTY)
     trailing_whitespace_style(EMPTY)
     unneeded_concatenation_style(EMPTY)
+})
+
+###
+### Specific tests for 'all_style'
+###
+
+## Retrieve the sorted list of all exported style linters.
+ALL_LINTERS <- sort(setdiff(grep("style$", getNamespaceExports("roger"),
+                                 value = TRUE),
+                            "all_style"))
+SUBSET_LINTERS <- sample(ALL_LINTERS, 5)
+
+## Test that the names in the results match the expected linters.
+stopifnot(exprs = {
+    identical(ALL_LINTERS,
+              names(all_style(VALID_STYLE)))
+    identical(ALL_LINTERS,
+              names(all_style(VALID_STYLE, include = NULL)))
+    identical(ALL_LINTERS,
+              names(all_style(VALID_STYLE, exclude = NULL)))
+    identical(SUBSET_LINTERS,
+              names(all_style(VALID_STYLE, include = SUBSET_LINTERS)))
+    identical(SUBSET_LINTERS,
+              names(all_style(VALID_STYLE, include = SUBSET_LINTERS, exclude = NULL)))
+    identical(setdiff(ALL_LINTERS, SUBSET_LINTERS),
+              names(all_style(VALID_STYLE, exclude = SUBSET_LINTERS)))
+    identical(setdiff(ALL_LINTERS, SUBSET_LINTERS),
+              names(all_style(VALID_STYLE, include = NULL, exclude = SUBSET_LINTERS)))
+})
+
+## Target results for linters with arguments
+EXPECTED_IGNORE <- list(commas_style = commas_style(VALID_NOMAGIC_IGNORE),
+                        nomagic_style = nomagic_style(VALID_NOMAGIC_IGNORE,
+                                                      ignore.also = c(32, 5L)))
+EXPECTED_BRACE_1TBS <- open_brace_style(VALID_BRACE_1TBS, "1TBS")
+
+## Test that the arguments in '...' are passed correctly to the
+## linters.
+stopifnot(exprs = {
+    identical(EXPECTED_IGNORE,
+              all_style(VALID_NOMAGIC_IGNORE, include = c("commas", "nomagic"),
+                        ignore.also = c(32, 5L)))
+    identical(EXPECTED_BRACE_1TBS,
+              all_style(VALID_BRACE_1TBS, include = "open_brace_style",
+                        style = "1TBS")$open_brace_style)
 })
 
 ## Local Variables:

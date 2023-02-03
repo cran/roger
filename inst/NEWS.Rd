@@ -2,6 +2,25 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.4-0 (in development)}{
+  \subsection{New features}{
+    \itemize{
+      \item{\code{all_style} utility function to validate code using all
+	available style linters at once.}
+      \item{\code{nomagic_style} now allows non-ASCII uppercase letters
+	in symbol names.}
+    }
+  }
+  \subsection{Changes}{
+    \itemize{
+      \item{\code{nomagic_style} uses a more robust procedure to identify
+	valid assignments of magic numbers to variables.}	
+      \item{\code{line_length_style} now issues only one message per
+	line exceeding the length threshold.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.3-1}{
   \subsection{Bug fixes}{
     \itemize{
