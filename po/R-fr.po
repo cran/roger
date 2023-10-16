@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: roger 0.9-0\n"
-"POT-Creation-Date: 2022-11-18 00:21\n"
-"PO-Revision-Date: 2022-11-18 00:25-0500\n"
+"POT-Creation-Date: 2023-02-03 00:08\n"
+"PO-Revision-Date: 2023-02-03 00:09-0500\n"
 "Last-Translator: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language-Team: Vincent Goulet <vincent.goulet@act.ulaval.ca>\n"
 "Language: fr\n"
@@ -15,6 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "%s does not match any of the available linters: %s"
+msgstr "%s ne correspond à aucun des outils d'analyse statique: %s"
+
+msgid "include"
+msgstr "include"
+
+msgid ","
+msgstr ","
+
+msgid "exclude"
+msgstr "exclude"
 
 msgid "no parse data;"
 msgstr "aucune donnée syntaxique"
@@ -122,6 +134,11 @@ msgstr "nettoyer et supprimer les espaces inutiles en fin de ligne"
 
 msgid "do not use 'c()' with 0 or 1 argument"
 msgstr "ne pas utiliser 'c()' sans ou avec un seul argument"
+
+msgid "%s in %s does not match any linter"
+msgid_plural "%s in %s do not match any linter"
+msgstr[0] "%s dans %s ne correspond à aucun outil d'analyse statique"
+msgstr[1] "%s dans %s ne correspondent à aucun outil d'analyse statique"
 
 msgid "%d top-level function definition found, "
 msgid_plural "%d top-level function definitions found, "

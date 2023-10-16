@@ -22,7 +22,7 @@ ops_spaces_style(srcData, ops = ops_list)
   \code{'*'}, \code{GT}, \code{GE}, \code{LT}, \code{LE},
   \code{EQ}, \code{NE}, \code{AND}, \code{OR}, \code{AND2},
   \code{OR2}, \code{'!'}, \code{LEFT_ASSIGN}, \code{RIGHT_ASSIGN},
-  \code{EQ_ASSIGN}, \code{EQ_SUB}, \code{SPECIAL}.
+  \code{EQ_ASSIGN}, \code{EQ_SUB}, \code{IN}, \code{SPECIAL}.
 }
 \value{
   Boolean. When \code{FALSE}, a \link{message} indicates the nature of

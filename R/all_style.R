@@ -38,8 +38,9 @@ all_style <- function(srcData, include, exclude, ...)
     {
         i <- pmatch(include, linters, nomatch = 0L, duplicates.ok = TRUE)
         if (all(i == 0L))
-            stop(gettextf("'include' does not match any of the available linters: %s",
-                          paste(dQuote(linters), collapse = ", ")))
+            stop(sprintf("%s does not match any of the available linters: %s",
+                         sQuote("include"),
+                         paste(dQuote(linters), collapse = ", ")))
         i <- i[i > 0L]
         linters <- linters[i]
     }
@@ -48,9 +49,10 @@ all_style <- function(srcData, include, exclude, ...)
         i <- pmatch(exclude, linters, nomatch = 0L, duplicates.ok = TRUE)
         if (any(w <- i == 0L))
             warning(sprintf(ngettext(sum(w),
-                                     "element %s of 'exclude' does not match any linter",
-                                     "elements %s of 'exclude' do not match any linter"),
-                            paste(sQuote(exclude[w]), collapse = ", ")))
+                                     "%s in %s does not match any linter",
+                                     "%s in %s do not match any linter"),
+                            paste(sQuote(exclude[w]), collapse = ", "),
+                            sQuote("exclude")))
         i <- i[!w]
         if (length(i))
             linters <- linters[-i]

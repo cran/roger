@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: roger 1.3-1\n"
-"POT-Creation-Date: 2022-11-18 00:21\n"
+"Project-Id-Version: roger 1.5-0\n"
+"POT-Creation-Date: 2023-10-16 12:56\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,6 +10,18 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "%s does not match any of the available linters: %s"
+msgstr ""
+
+msgid "include"
+msgstr ""
+
+msgid ","
+msgstr ""
+
+msgid "exclude"
+msgstr ""
 
 msgid "no parse data;"
 msgstr ""
@@ -109,6 +121,11 @@ msgstr ""
 
 msgid "do not use 'c()' with 0 or 1 argument"
 msgstr ""
+
+msgid        "%s in %s does not match any linter"
+msgid_plural "%s in %s do not match any linter"
+msgstr[0]    ""
+msgstr[1]    ""
 
 msgid        "%d top-level function definition found, "
 msgid_plural "%d top-level function definitions found, "

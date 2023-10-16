@@ -2,7 +2,33 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
-\section{Changes in \pkg{roger} version 1.4-0 (in development)}{
+\section{Changes in \pkg{roger} version 1.5-0}{
+  \subsection{New features}{
+    \itemize{
+      \item{\code{close_bracket_style} and \code{open_bracket_style} now
+	accept that the preceding (resp. following) expression is on a
+	different line than the bracket.}
+      \item{\code{close_parenthesis_style} and
+	\code{open_parenthesis_style} now accept that the preceding
+	(resp. following) expression is on a different line than the
+	parenthesis.}
+      \item{\code{ops_spaces_style} now also checks spacing around the
+	keyword \code{in} used in \code{for} loops.}
+    }
+  }
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{left_parenthesis_style} now works correctly with the
+	unary operator \code{!} and with parentheses used to echo the
+	result of an expression. The linter is also more robust and
+	reliable (although slower) for many other constructions.}
+      \item{Translations of messages from \code{all_linters}
+	completed.}
+    }
+  }
+}
+  
+\section{Changes in \pkg{roger} version 1.4-0}{
   \subsection{New features}{
     \itemize{
       \item{\code{all_style} utility function to validate code using all

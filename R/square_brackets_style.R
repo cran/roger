@@ -25,22 +25,21 @@ close_bracket_style <- function(srcData)
     if (!length(w))
         return(TRUE)
 
-    ## Get the position (line, column) of every closing bracket.
-    col <- parseData$col1[w]
-    lines <- parseData$line1[w]
-
     ## Check that closing brackets are not preceded by a space, unless
-    ## that space is after a comma
+    ## that space is after a comma, or that the previous expression is
+    ## on a different line.
+    col <- parseData$col1[w]
     pcol <- parseData$col2[w - 1L]
     pchar <- parseData$token[w - 1L]
     valid <- ((col - pcol) == 1L & pchar != "','") |
-        ((col - pcol) > 1L & pchar == "','")
+        ((col - pcol) > 1L & pchar == "','") |
+        (parseData$line1[w] != parseData$line2[w - 1L])
     res <- all(valid)
 
     ## Return an error message for lines that are not valid.
     if (!res)
     {
-        lines <- lines[!valid]
+        lines <- parseData$line1[w][!valid]
         msg <- sapply(lines, function(l)
             .makeMessage(gettext("Line"), " ", l, ": ",
                          gettext("do not use spaces before closing brackets (except after a comma)"),
@@ -72,18 +71,16 @@ open_bracket_style <- function(srcData)
     if (!length(w))
         return(TRUE)
 
-    ## Get the position (line, column) of every opening bracket.
-    col <- parseData$col1[w]
-    lines <- parseData$line1[w]
-
-    # Check that opening brackets are not followed by a space
-    valid <- 1L == (parseData$col1[w + 1L] - col)
+    # Check that opening brackets are not followed by a space, or
+    ## that the following expression is on a different line.
+    valid <- (parseData$col1[w + 1L] - parseData$col1[w] == 1L) |
+        (parseData$line1[w + 1L] != parseData$line1[w])
     res <- all(valid)
 
     ## Return an error message for lines that are not valid.
     if (!res)
     {
-        lines <- lines[!valid]
+        lines <- parseData$line1[w][!valid]
         msg <- sapply(lines, function(l)
             .makeMessage(gettext("Line"), " ", l, ": ",
                          gettext("do not use spaces after opening brackets"),

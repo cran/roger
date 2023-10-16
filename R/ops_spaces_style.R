@@ -9,7 +9,7 @@
 ops_list <- c("'+'", "'-'", "'*'", "GT", "GE", "LT", "LE", "EQ", "NE",
               "AND", "OR", "AND2", "OR2", "'!'",
               "LEFT_ASSIGN", "RIGHT_ASSIGN", "EQ_ASSIGN",
-              "EQ_SUB", "SPECIAL")
+              "EQ_SUB", "IN", "SPECIAL")
 
 ops_spaces_style <- function(srcData, ops = ops_list)
 {

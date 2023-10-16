@@ -50,6 +50,7 @@ cat(
 "< 2]",
 "x <- -2",
 "2 + !TRUE",
+"for (i in x) i",
 "",
 ## Parentheses
 "sum(x)",
@@ -59,8 +60,31 @@ cat(
 "1 + (z^(x + y))",
 "1 + (sum(1:10))",
 "1 + ((sum(1:10)))",
+"(x + y) + 1",
+"((x + y) + 1)",
+"(x + y)",
+"((x + y))",
+"(",
+"  x + y",
+")",
+"(",
+"  x + y)",
+"(x + y",
+")",
+"!(x + y)",
+"-(x + y)",
+"+(x + y)",
+"1:(x + y)",
+"x[(x + y)]",
+"x[[(x + y)]]",
+"x[",
+"  (x + y)]",
+"x[",
+"  (x + y)",
+"]",
+"f <- function(x) x",
 "if (x > 0) x + y",
-"for (i in seq_along(z)) x[i] <- x[i] + 2",
+"for (i in (z)) x[i] <- x[i] + 2",
 "while (x < 2) x + 2",
 "switch(2, 2 + 2, c(sum(x), diff(z)))",
 "foo <- function(x) x^2",
@@ -309,6 +333,7 @@ cat(
 "x*y",
 "x<- -2",
 "2+!TRUE",
+"for (i in(x)) i",
 ## Parentheses
 "sum( x)",
 "sum(x )",
@@ -429,24 +454,24 @@ INVALID_NOMAGIC <- getSourceData(INVALID_NOMAGIC_FILE)
 INVALID_ASSIGNMENT_LINES <- c(2L, 3L, 4L)
 INVALID_CLOSE_BRACE_R_LINES <- c(8L, 9L, 17L, 21L)
 INVALID_CLOSE_BRACE_1TBS_LINES <- c(7L, 10L, 10L)
-INVALID_CLOSE_BRACKET_LINES <- c(35L, 37L, 43L, 44L, 46L)
-INVALID_CLOSE_PARENTHESIS_LINES <- 26L
-INVALID_COMMAS_LINES <- c(37L, 38L, 39L, 40L, 42L, 43L, 44L, 45L, 46L, 47L, 48L)
+INVALID_CLOSE_BRACKET_LINES <- c(36L, 38L, 44L, 45L, 47L)
+INVALID_CLOSE_PARENTHESIS_LINES <- 27L
+INVALID_COMMAS_LINES <- c(38L, 39L, 40L, 41L, 43L, 44L, 45L, 46L, 47L, 48L, 49L)
 INVALID_COMMENTS_LINES <- 2L
-INVALID_LEFT_PARENTHESIS_LINES <- 27:33
-INVALID_LINE_LENGTH_LINES <- 50L
+INVALID_LEFT_PARENTHESIS_LINES <- c(25L, 28:34)
+INVALID_LINE_LENGTH_LINES <- 51L
 INVALID_NOMAGIC_LINES <- c(2L, 3L, 4L, 7L, 9L, 10L, 10L, 11L)
 INVALID_NOMAGIC_IGNORE_LINES <- c(3L, 4L, 7L, 9L, 10L, 10L)
 INVALID_OPEN_BRACE_R_LINES <- c(2L, 6L, 12L, 16L)
 INVALID_OPEN_BRACE_1TBS_LINES <- c(2L, 5L)
 INVALID_OPEN_BRACE_UNIQUE_LINES <- list(R = c(2L, 6L, 12L, 16L, 19L),
                                         ONETBS = c(2L, 5L, 8L))
-INVALID_OPEN_BRACKET_LINES <- c(34L, 48L)
-INVALID_OPEN_PARENTHESIS_LINES <- 25L
-INVALID_OPS_SPACING_LINES <- c(7:24, 28L)
-INVALID_TRAILING_BLANK_LINES_LINES <- c(58L, 59L, 60L)
-INVALID_TRAILING_WHITESPACE_LINES <- c(52L, 53L)
-INVALID_UNNEEDED_CONCATENATION_LINES <- c(55L, 56L, 57L)
+INVALID_OPEN_BRACKET_LINES <- c(35L, 49L)
+INVALID_OPEN_PARENTHESIS_LINES <- 26L
+INVALID_OPS_SPACING_LINES <- c(7:25, 29L)
+INVALID_TRAILING_BLANK_LINES_LINES <- c(59L, 60L, 61L)
+INVALID_TRAILING_WHITESPACE_LINES <- c(53L, 54L)
+INVALID_UNNEEDED_CONCATENATION_LINES <- c(56L, 57L, 58L)
 
 ## Results for invalid style
 res.assignment_style <- suppressMessages(assignment_style(INVALID_STYLE))

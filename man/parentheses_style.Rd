@@ -18,11 +18,12 @@ left_parenthesis_style(srcData)
 \details{
   Good coding practices dictate the correct spacing around parentheses.
   First, opening parentheses should not be immediately followed by a
-  space. Second, closing parentheses should not be immediately preceded by a
-  space. Third, left (or opening) parentheses should always be preceded
-  by a space, except in function calls, at the start of
-  sub-expressions, after operators \code{/} and \code{^}, or after an
-  optional left parenthesis.
+  space. Second, closing parentheses should not be immediately preceded
+  by a space. Third, left (or opening) parentheses should always be
+  preceded by a space, except: in function calls; at the start of
+  sub-expressions; after the unary operators \code{!}, \code{+} and
+  \code{-}; after the operators \code{[}, \code{[[}, \code{^}, \code{:},
+  and \code{/}, or after an optional left parenthesis.
 }
 \value{
   Boolean. When \code{FALSE}, a \link{message} indicates the nature of
@@ -41,6 +42,8 @@ fil <- tempfile(fileext = ".R")
 cat("x <- c(2, 3, 5)",
     "if (any((2 * x) > 4))",
     "    sum(x)",
+    "!x",
+    "-x",
     "1/(x + 1)",
     "2^(x - 1)",
     "2^((x - 1))",
