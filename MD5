@@ -1,4 +1,4 @@
-00b0200aea1bab048d353a05806637ae *DESCRIPTION
+b9b89bf89d5fe9b2a9ae63a519c97f66 *DESCRIPTION
 a49dcb06d6de1bfec74050900da3ec79 *NAMESPACE
 e55cf059ed762d44862ca1ef3f099523 *R/all_style.R
 642b3e4f9becc130b86fa61fe1f2dd8d *R/assignment_style.R
@@ -12,14 +12,14 @@ e95a67ab41c3779a4c91487dd156458b *R/getSourceData.R
 3d0264013bf4b19ac9350efb9dbad667 *R/line_length_style.R
 8f791653430f6cf4d8a03066793643cf *R/nomagic_style.R
 3246d55f7aa7eeb88e4a287710f4f3d7 *R/ops_spaces_style.R
-7ddd0515eb0f1a6a34c08f235a0fbb06 *R/parentheses_style.R
+09f16139da611e647cfa1adfb660665d *R/parentheses_style.R
 c9d603fbaf3abde725ef172df46d9260 *R/roger_interface.R
 eb1209d5db9d13dd42586214ec1b749f *R/square_brackets_style.R
 a3cdf19aca0f91ed15b538aae1eb8472 *R/trailing_blank_lines_style.R
 920c0ca600a041352ee5fa8524b8a699 *R/trailing_whitespace_style.R
 25d012abdf778a3c073d39039b36dcce *R/unneeded_concatenation_style.R
-32906a2a3e6189fb593a56e0e774277c *inst/NEWS.Rd
-07ff4235d0f3a3dc0d5601ec0e9219e0 *inst/po/en@quot/LC_MESSAGES/R-roger.mo
+38c7047878357f8d130e76e5595a7d7e *inst/NEWS.Rd
+3a2647799e4d1ebe6f67fbeab7095ebb *inst/po/en@quot/LC_MESSAGES/R-roger.mo
 71ac66e0b9a9764c63854d76bea1aa18 *inst/po/fr/LC_MESSAGES/R-roger.mo
 60f0e5df6986d9969411c6c3c86b9e26 *man/all_style.Rd
 99842f5b245cd2d2eac841e6cbe84497 *man/assignment_style.Rd
@@ -38,9 +38,9 @@ fe5268e48634c9d7b2aaa48a303f702e *man/square_brackets_style.Rd
 3de2a1ec820f84fff1e1d97822441ebd *man/trailing_whitespace_style.Rd
 a778686c3486c28a48cd32a454bd96ca *man/unneeded_concatenation_style.Rd
 5a255b6fdf4e56dac18bc2b4321c9921 *po/R-fr.po
-0451442da50ef967bf3f9419e1b37877 *po/R-roger.pot
+b3abea64cf2c13b90a5898a2838ea61d *po/R-roger.pot
 b5ea451a752a1b1f09c229e24e5f9904 *tests/documentation-tests.R
 2843511ce8d693a1bd2d2150c61aca74 *tests/getParseFun-tests.R
 5a8b407c242d7dafbf772921522561e5 *tests/getParseParent-tests.R
 8936a9f8817879adbe002a5d4a490d48 *tests/interface-tests.R
-7f2bf33015ffd64f14696167c251f4e6 *tests/style-tests.R
+845ae2282fb7321ba1d5d9e36ec80123 *tests/style-tests.R

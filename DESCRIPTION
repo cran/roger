@@ -1,8 +1,8 @@
 Package: roger
 Type: Package
 Title: Automated Grading of R Scripts
-Version: 1.5-0
-Date: 2023-10-16
+Version: 1.5-1
+Date: 2023-10-23
 Authors@R: c(person("Vincent", "Goulet", role = c("aut", "cre"),
                     email = "vincent.goulet@act.ulaval.ca"),
              person("Samuel", "Fréchette", role = "aut"),
@@ -23,11 +23,11 @@ URL: https://roger-project.gitlab.io
 BugReports: https://gitlab.com/roger-project/roger-rpkg/-/issues
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2023-10-16 16:57:26 UTC; vincent
+Packaged: 2023-10-24 03:59:27 UTC; vincent
 Author: Vincent Goulet [aut, cre],
   Samuel Fréchette [aut],
   Jean-Christophe Langlois [aut],
   Jim Hester [ctb]
 Maintainer: Vincent Goulet <vincent.goulet@act.ulaval.ca>
 Repository: CRAN
-Date/Publication: 2023-10-16 18:50:02 UTC
+Date/Publication: 2023-10-24 04:20:03 UTC

@@ -2,6 +2,16 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.5-1}{
+  \subsection{Bug fixes}{
+    \itemize{
+      \item{\code{left_parenthesis_style} failed on composite
+	expressions involving more than one operator, e.g. \code{(x + y)
+	  * 3 + 1}.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.5-0}{
   \subsection{New features}{
     \itemize{

@@ -65,6 +65,11 @@ left_parenthesis_iter <- function(parseData, w)
     parent_id <- getParseParent(parseData, id)
     uncle_id <- getParseSiblings(parseData, parent_id)
 
+    ## Keep only the uncles that are either expressions or the keyword
+    ## 'in' in 'for' loops.
+    uncle_id <- uncle_id[parseData[as.character(uncle_id),
+                                   "token"] %in% c("expr", "IN")]
+
     ## Stop if the top of the parse tree is reached.
     if (parent_id == 0)
         return(TRUE)
@@ -84,12 +89,11 @@ left_parenthesis_iter <- function(parseData, w)
         ## Check all conditions for proper spacing.
         (parseData$col1[w] - parseData$col2[w - nup] > 1L) ||
             (parseData$line1[w] != parseData$line2[w - nup]) ||
-            (length(uncle_id) == 1L) ||
+            (!length(uncle_id)) ||
             any(parseData$token[w - 2L] %in%
                 c("'^'", "'/'", "':'", "'('", "'['", "LBB"))
     }
 }
-
 
 ###
 ### Closing parenthesis: no space immediately before
