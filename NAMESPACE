@@ -44,5 +44,7 @@ export(
     "formals_doc",
     ## Roger CLI R Interface
     "roger_checkreq", "roger_clone", "roger_grade",
-    "roger_push", "roger_switch", "roger_validate"
+    "roger_push", "roger_switch", "roger_validate",
+    ## Utility function to count the number of tests
+    "count_tests"
 )

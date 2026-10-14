@@ -1,9 +1,10 @@
-b9b89bf89d5fe9b2a9ae63a519c97f66 *DESCRIPTION
-a49dcb06d6de1bfec74050900da3ec79 *NAMESPACE
+793424a28d87532ebdbe09446cdef961 *DESCRIPTION
+95e37d68971b14d0d75b08f1d4dd3f87 *NAMESPACE
 e55cf059ed762d44862ca1ef3f099523 *R/all_style.R
 642b3e4f9becc130b86fa61fe1f2dd8d *R/assignment_style.R
 a60e388b7a25a83a6be7f6647252d8cb *R/commas_style.R
 5c0f19570f229a6edfbaf4d6d5d8d95f *R/comments_style.R
+fdfd90a2de751c030cb747e4fe1f17a9 *R/count_tests.R
 8a27aef96166944a290d84fe66927cf1 *R/curly_braces_style.R
 85d9770f908efb6ace54a030e28b970b *R/documentation.R
 ad8fb6fc60a38105535112c63352993d *R/getParseFun.R
@@ -18,13 +19,14 @@ eb1209d5db9d13dd42586214ec1b749f *R/square_brackets_style.R
 a3cdf19aca0f91ed15b538aae1eb8472 *R/trailing_blank_lines_style.R
 920c0ca600a041352ee5fa8524b8a699 *R/trailing_whitespace_style.R
 25d012abdf778a3c073d39039b36dcce *R/unneeded_concatenation_style.R
-38c7047878357f8d130e76e5595a7d7e *inst/NEWS.Rd
+d2517e4f55e8c114f279a6ed72a4651b *inst/NEWS.Rd
 3a2647799e4d1ebe6f67fbeab7095ebb *inst/po/en@quot/LC_MESSAGES/R-roger.mo
 71ac66e0b9a9764c63854d76bea1aa18 *inst/po/fr/LC_MESSAGES/R-roger.mo
 60f0e5df6986d9969411c6c3c86b9e26 *man/all_style.Rd
 99842f5b245cd2d2eac841e6cbe84497 *man/assignment_style.Rd
 9f1c2f184ed4721d619067dc6d314bdf *man/commas_style.Rd
 fe050ef232f6edf169e2f4613bdea3ad *man/comments_style.Rd
+2ab1a5ac4f0a808f5a81f756cf346397 *man/count_tests.Rd
 41dbfc28dd734cc81f850cc9d1cb0f8c *man/curly_braces_style.Rd
 5285463f474335f89dc8cf6dc8538fb2 *man/documentation.Rd
 ca800970dd11a4f5b6a394578f8ebd90 *man/getSourceData.Rd
@@ -39,6 +41,7 @@ fe5268e48634c9d7b2aaa48a303f702e *man/square_brackets_style.Rd
 a778686c3486c28a48cd32a454bd96ca *man/unneeded_concatenation_style.Rd
 5a255b6fdf4e56dac18bc2b4321c9921 *po/R-fr.po
 b3abea64cf2c13b90a5898a2838ea61d *po/R-roger.pot
+36dd2921e60d222863190b931ad0a05e *tests/count_tests-tests.R
 b5ea451a752a1b1f09c229e24e5f9904 *tests/documentation-tests.R
 2843511ce8d693a1bd2d2150c61aca74 *tests/getParseFun-tests.R
 5a8b407c242d7dafbf772921522561e5 *tests/getParseParent-tests.R

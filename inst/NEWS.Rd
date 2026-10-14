@@ -2,6 +2,15 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.6-0}{
+  \subsection{New features}{
+    \itemize{
+      \item{\code{count_tests} utility function to count the number of
+	regression tests in a script file.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.5-1}{
   \subsection{Bug fixes}{
     \itemize{
