@@ -15,6 +15,8 @@ if (!interactive())
 TESTS_FILE <- tempfile(fileext = ".R")
 cat(
 "stopifnot(1 == 1)",
+"tools::assertError(stop(\"error message\"))",
+"tools::assertWarning(warning(\"warning message\"))",
 "stopifnot(2 == 2, 3 == 3)",
 "stopifnot(exprs = {",
 "    4 == 4",
@@ -25,7 +27,7 @@ cat(
 "f <- function() stopifnot(6 == 6)",
 file = TESTS_FILE, sep = "\n")
 
-stopifnot(count_tests(TESTS_FILE) == 6L)
+stopifnot(count_tests(TESTS_FILE) == 8L)
 
 ## NOT RUN: check the actual number of tests in interface-tests.R.
 #stopifnot(count_tests("interface-tests.R") == 30)

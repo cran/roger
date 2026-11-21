@@ -2,6 +2,15 @@
 \title{\pkg{roger} News}
 \encoding{UTF-8}
 
+\section{Changes in \pkg{roger} version 1.6-1}{
+  \subsection{New features}{
+    \itemize{
+      \item{\code{count_tests} now also counts tests using
+	\code{tools::assertError} and \code{tools::assertWarning}.}
+    }
+  }
+}
+
 \section{Changes in \pkg{roger} version 1.6-0}{
   \subsection{New features}{
     \itemize{

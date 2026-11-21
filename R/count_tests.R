@@ -50,13 +50,14 @@ count_tests <- function(file, encoding = "UTF-8",
     countExprInExpr <- function(id)
         sum(x$parent == id & x$token == "expr")
 
-    ## Initialize ther number of tests.
+    ## Initialize the number of tests.
     n <- 0L
 
     ## Get the ids of the expr containing the 'stopifnot' calls, and
     ## of their parents.
     testId <- x[x$token == "SYMBOL_FUNCTION_CALL" &
-                x$text == "stopifnot", "parent"]
+                x$text %in% c("stopifnot", "assertError", "assertWarning"),
+                "parent"]
     testParent <- getParseParent(x, testId)
 
     ## Keep only calls that are at the top level.
